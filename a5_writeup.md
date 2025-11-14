@@ -21,7 +21,7 @@ After completing the assignment, answer the following reflection questions:
 
 ## Reflection Questions
 
-1. What are some things that you learned through this assignment? Think about the concepts of backtracking, constraint satisfaction, and search algorithms. Were there any particular challenges you faced while implementing the Board class methods or the DFS/BFS functions? How did you overcome them? Basically some things I learned is how a BFS and DFS algrothim work and the differences between them and the purposes of using them like queue and stack with how it back tracks and whichever one is better for the situation, a challenge that can be seen in my code is the assert means something in my code for the DFS and BFS is wrong.
+1. What are some things that you learned through this assignment? Think about the concepts of backtracking, constraint satisfaction, and search algorithms. Were there any particular challenges you faced while implementing the Board class methods or the DFS/BFS functions? How did you overcome them? Basically some things I learned is how a BFS and DFS algrothim work and the differences between them and the purposes of using them like queue and stack with how it back tracks and whichever one is better for the situation, a challenge that can be seen in my code is the assert means something in my code for the DFS and BFS is wrong. How I fixed it is i didnt pus the board to the BFS or DFS so they couldn't solve it but then when i added it, it fixed.
 
 
 

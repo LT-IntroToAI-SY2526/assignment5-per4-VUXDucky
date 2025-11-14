@@ -1,6 +1,6 @@
 import copy  # to make a deepcopy of the board
 from typing import List, Any, Tuple
-
+import time
 # import Stack and Queue classes for BFS/DFS
 from stack_and_queue import Stack, Queue
 
@@ -183,11 +183,17 @@ def DFS(state: Board) -> Board:
         either None in the case of invalid input or a solved board
     """
     the_stack = Stack()
+    the_stack.push(state)
+    iterations = 0
+    start_time = time.time()
 
     while not the_stack.is_empty():
+        iterations += 1
         current_board: Board = the_stack.pop()
-        print(current_board)
         if current_board.goal_test():
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            print(f"DFS took {iterations} iterations in {elapsed_time: .4f} seconds")
             return current_board
         row, col = current_board.find_most_constrained_cell()
         possible_values = current_board.rows[row][col]
@@ -213,15 +219,22 @@ def BFS(state: Board) -> Board:
         either None in the case of invalid input or a solved board
     """
     the_queue = Queue()
+    the_queue.push(state)
+    iterations = 0
+    start_time = time.time()
 
     while not the_queue.is_empty():
+        iterations += 1
         curent_board: Board = the_queue.pop()
-        print(curent_board)
+        #print(curent_board)
         if curent_board.goal_test():
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            print(f"BFS took {iterations} iterations in {elapsed_time: .4f} seconds")
             return curent_board
         row, col = curent_board.find_most_constrained_cell()
         possible_values = curent_board.rows[row][col]
-        print(row, col, possible_values)
+        #print(row, col, possible_values)
         if not curent_board.failure_test():
             for val in possible_values:
                 new_board = copy.deepcopy(curent_board)
@@ -244,7 +257,7 @@ if __name__ == "__main__":
 
         # print initial board
         print("<<<<< Initial Board >>>>>")
-        b.print_pretty()
+        #b.print_pretty()
         # solve board
         solution = (DFS if use_dfs else BFS)(b)
         # print solved board
